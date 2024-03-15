@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorCms", "BlazorCms\Blaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcBlazorSampleLib", "OcBlazorSampleLib\OcBlazorSampleLib.csproj", "{450515BD-169D-4726-A82E-F993E7C048A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenantBaseUrlProvider", "MultiTenantBaseUrlProvider\MultiTenantBaseUrlProvider.csproj", "{BF881592-0845-43DB-BDF4-536797C36A36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiTenantBaseUrlProvider", "MultiTenantBaseUrlProvider\MultiTenantBaseUrlProvider.csproj", "{BF881592-0845-43DB-BDF4-536797C36A36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B7FA3435-9B6A-4970-866E-0BFD371FF320}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
