@@ -1,6 +1,10 @@
-# Orchard Core Multitenant Decouples Blazor InteractiveServer Example
+# Orchard Core Multitenant Decoupled Blazor InteractiveServer Example
 
 **.NET8**
+
+---
+
+Based on PR here [Guide for decoupled CMS](https://github.com/OrchardCMS/OrchardCore/pull/15213).
 
 This example was made with the following tenants.js
 
@@ -26,13 +30,17 @@ This example was made with the following tenants.js
 }
 ```
 
-Default, first and second. 
+*Default, first and second.**
+
+---
 
 The content can be imported in each tenant after the tenants are created and setup.
 
 See the ```Recipe.json``` in the Recipes folder.
 
 (Use ```https://localhost:5001/Admin/DeploymentPlan/Import/Json``` to import it on the Default host, ```https://localhost:5001/first/Admin/DeploymentPlan/Import/Json``` on the tenant 'first' etc.)
+
+---
 
 ## Base Url
 
