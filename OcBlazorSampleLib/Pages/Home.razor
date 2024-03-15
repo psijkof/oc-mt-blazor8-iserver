@@ -1,0 +1,39 @@
+ @page "/home"
+@using System.Text.Json.Serialization
+@using System.Text.Json
+
+ @inject ISiteService SiteService
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, Orchard!</h1>
+
+    Welcome to your new MultiTenant Blazor CMS app
+<hr />
+
+<pre>
+    @_siteSerialized
+</pre>
+@if (!String.IsNullOrEmpty(_requestUrl))
+{
+    <h3>request url prefix</h3>
+
+    <pre>
+        @_requestUrl
+    </pre>
+}
+@code
+{
+    ISite? _site;
+    string? _siteSerialized;
+    string? _requestUrl;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        _site = await SiteService.LoadSiteSettingsAsync();
+        _siteSerialized = JsonSerializer.Serialize(_site, new JsonSerializerOptions { WriteIndented = true });
+        _requestUrl = ShellScope.Context.Settings.RequestUrlPrefix;
+    }
+}
