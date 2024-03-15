@@ -18,14 +18,16 @@
 <pre>
     @_siteSerialized
 </pre>
+
 @if (!String.IsNullOrEmpty(_requestUrl))
 {
     <h3>request url prefix</h3>
 
     <pre>
         @_requestUrl
-                                    </pre>
+    </pre>
 }
+
 @code
 {
     ISite? _site;
