@@ -23,4 +23,8 @@
       <ProjectReference Include="..\MultiTenantBaseUrlProvider\MultiTenantBaseUrlProvider.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\" />
+    </ItemGroup>
+
 </Project>

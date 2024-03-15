@@ -1,0 +1,121 @@
+{
+  "name": "Multitenant Headless",
+  "displayName": "Multitenant Headless",
+  "description": "For decoupled Blazor scenario",
+  "author": "Sijmen Koffeman",
+  "website": "http://local-dev.net",
+  "version": "1",
+  "issetuprecipe": false,
+  "categories": [
+    "Enhance"
+  ],
+  "tags": [],
+  "steps": [
+    {
+      "name": "Settings",
+      "HomeRoute": {
+        "Action": "Index",
+        "Controller": "Admin",
+        "Area": "OrchardCore.Admin"
+      }
+    },
+    {
+      "name": "Content",
+      "data": [
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "MarkdownPage",
+          "DisplayText": "The page that exists but is called none-existing-page",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUserId')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "MarkdownPage": {},
+          "AliasPart": {
+            "Alias": "none-existing-page"
+          },
+          "MarkdownBodyPart": {
+            "Markdown": "# Heading 1\r\n## Heading 2\r\n### Heading 3\r\n#### Heading 4\r\n##### Heading 5\r\n###### Heading 6\r\n\r\nNormal paragraph text.\r\n\r\n* List\r\n* List\r\n* List\r\n\r\n1. List\r\n1. List\r\n1. List\r\n\r\n`Inline code`\r\n\r\n```\r\n<!-- Code block -->\r\n<h1>Sample heading</h1>\r\n```\r\n\r\n*Italic text 1*\r\n\r\n**Bold text 1**\r\n\r\n> Blockquote text.\r\n\r\n[Link](http://example.com)\r\n\r\nHorizontal Rule\r\n\r\n---\r\n\r\n~~Strikethrough~~\r\n\r\n```javascript\r\nfunction doSomething() {\r\n  // Write code here\r\n}\r\n```\r\n\r\n- [ ] incomplete task\r\n- [x] completed task\r\n\r\nFirst Header | Second Header\r\n------------ | -------------\r\ncell 1 | cell 2\r\ncell 3 | cell 4\r\n\r\nHeading 1\r\n===\r\nHeading 2\r\n---\r\n\r\n- List\r\n- List\r\n- List\r\n\r\n1. List\r\n2. List\r\n3. List\r\n\r\n_Italic text 2_\r\n\r\n__Bold text 2__\r\n\r\n    // A sample code block\r\n    console.log(\"Sample code block\");\r\n\r\n[Link][1]\r\n\r\nHorizontal Rule\r\n\r\n***\r\n\r\n[1]:http://example.com\r\n"
+          },
+          "TitlePart": {
+            "Title": "The page that exists but is called none-existing-page"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "MarkdownPage",
+          "DisplayText": "first markdown page",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters('AdminUserId')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "MarkdownPage": {},
+          "AliasPart": {
+            "Alias": "first-markdown-page"
+          },
+          "MarkdownBodyPart": {
+            "Markdown": "# Dit is een test\r\n\r\n**test**\r\n\r\nFirst Header | Second Header\r\n------------ | -------------\r\ncell 1 | cell 2\r\ncell 3 | cell 4"
+          },
+          "TitlePart": {
+            "Title": "first markdown page"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "MarkdownPage",
+          "DisplayName": "MarkdownPage",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Listable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true
+            },
+            "FullTextAspectSettings": {},
+            "GraphQLContentTypeSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "MarkdownPage",
+              "Name": "MarkdownPage",
+              "Settings": {}
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "MarkdownBodyPart",
+              "Name": "MarkdownBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": []
+    }
+  ]
+}
