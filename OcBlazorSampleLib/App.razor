@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <MultiTenantBaseUrlProvider />
+    <MultiTenantBaseElement/>
     <link rel="stylesheet" href="OrchardCore.Resources/Styles/bootstrap.min.css" />
     <link rel="stylesheet" href="_content/OcBlazorSampleLib/OcBlazorSampleLib.bundle.scp.css" />
     <link rel="shortcut icon" href=@(_tenantFavIconUrl) type="image/x-icon">
@@ -20,6 +20,6 @@
 
 @code
 {
-    string _tenantPrefix => !String.IsNullOrEmpty(MultiTenantBaseUrlProvider.RequestUrlPrefix) ? $"{MultiTenantBaseUrlProvider.RequestUrlPrefix}-" : String.Empty;
+    string _tenantPrefix => !String.IsNullOrEmpty(MultiTenantBaseElement.RequestUrlPrefix) ? $"{MultiTenantBaseElement.RequestUrlPrefix}-" : String.Empty;
     string _tenantFavIconUrl => $"/{_tenantPrefix}favicon.ico";
 }

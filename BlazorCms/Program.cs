@@ -10,9 +10,8 @@ builder.Services
     .ConfigureServices(services =>
     {
         services.AddRazorComponents()
-       .AddInteractiveServerComponents()
-       ;
-
+            .AddInteractiveServerComponents()
+        ;
     })
     .Configure((app, routes, services) =>
     {
@@ -22,8 +21,6 @@ builder.Services
             .AddInteractiveServerRenderMode()
        ;
     });
-
-builder.Services.AddApplicationDependecies();
 
 var app = builder.Build();
 

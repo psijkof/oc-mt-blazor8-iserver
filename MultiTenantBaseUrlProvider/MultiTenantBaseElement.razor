@@ -1,17 +1,19 @@
-﻿<base href=@($"{_siteBaseUrl}") />
+﻿<base href=@_siteBaseUrl />
 
-@code {
+@code
+{
     private string _siteBaseUrl = "/";
 
     protected override Task OnParametersSetAsync()
     {
         var requestUrlPrefix = ShellScope.Context.Settings.RequestUrlPrefix;
-        
+
         if (!String.IsNullOrEmpty(requestUrlPrefix)) { requestUrlPrefix = $"{requestUrlPrefix}/"; }
 
         _siteBaseUrl = $"/{requestUrlPrefix}";
 
         return Task.CompletedTask;
     }
+
     public static string RequestUrlPrefix => ShellScope.Context.Settings.RequestUrlPrefix ?? String.Empty;
 }
