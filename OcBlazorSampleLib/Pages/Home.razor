@@ -4,29 +4,43 @@
 @using System.Text.Json
 @using OcBlazorSampleLib.Components
 
- @inject ISiteService SiteService
+@inject ISiteService SiteService
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, Orchard!</h1>
 
-    Welcome to your new MultiTenant Blazor CMS app
-<hr />
+<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+    <Authorized>
 
-<OneTimeButton @rendermode="@RenderMode.InteractiveServer" />
+        <LogOffButton @rendermode=RenderMode.InteractiveServer/>   
+        
+        <h1>Hello, Orchard!</h1>
 
-<pre>
-    @_siteSerialized
-</pre>
+        Welcome to your new MultiTenant Blazor CMS app
+        <hr />
 
-@if (!String.IsNullOrEmpty(_requestUrl))
-{
-    <h3>request url prefix</h3>
+        <OneTimeButton @rendermode="@RenderMode.InteractiveServer" />
+        <pre>
+            @_siteSerialized
+        </pre>
 
-    <pre>
-        @_requestUrl
-    </pre>
-}
+        @if (!String.IsNullOrEmpty(_requestUrl))
+        {
+            <h3>request url prefix</h3>
+
+            <pre>
+                @_requestUrl
+                </pre>
+        }
+    </Authorized>
+    <NotAuthorized>
+        Please log in first.
+        <a class="btn-link" href="/LogIn?ReturnUrl=home">Log in</a>
+    </NotAuthorized>
+
+</Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+
+
 
 @code
 {

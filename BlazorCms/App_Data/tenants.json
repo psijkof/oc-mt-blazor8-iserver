@@ -15,5 +15,11 @@
     "TenantId": "4f2ppdm35cyrj67eaf71sw2x5s",
     "RequestUrlPrefix": "second",
     "State": "Running"
+  },
+  "third": {
+    "VersionId": "46jsqp5j66p2s73d2rzh4dhymd",
+    "TenantId": "4y7pdsxrm97g9wcqnk05xypkdc",
+    "RequestUrlPrefix": "third",
+    "State": "Running"
   }
 }

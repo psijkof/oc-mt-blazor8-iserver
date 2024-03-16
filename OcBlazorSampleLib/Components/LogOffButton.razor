@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Identity
+<a @onclick="LogOff" class="btn-link">Log off</a>
+@user
+
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject SignInManager<IUser> SignInManager
+@code {
+    string user = "()";
+
+    async Task LogOff()
+    {
+        var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+        user = authState.User.Identity.Name;
+        await SignInManager.SignOutAsync();
+    }
+}
