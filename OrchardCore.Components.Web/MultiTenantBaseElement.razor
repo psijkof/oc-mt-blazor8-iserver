@@ -1,0 +1,35 @@
+@using Microsoft.AspNetCore.Http
+@using OrchardCore.Settings
+
+@inject ISiteService SiteService
+
+@if (!String.IsNullOrEmpty(_siteBaseUrl))
+{
+    <base href="@_siteBaseUrl" />
+}
+else
+{
+    @if (HttpContext is not null)
+    {
+        <MultiTenantHttpContextBaseElement />
+    }
+    else
+    {
+        <MultiTenantShellScopeBaseElement />
+    }
+}
+
+@code
+{
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
+    protected string? _siteBaseUrl;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        _siteBaseUrl = (await SiteService.GetSiteSettingsAsync()).BaseUrl;
+    }
+}

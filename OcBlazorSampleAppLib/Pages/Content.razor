@@ -37,8 +37,8 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        ContentItem = await ContentItemsService.GetContentItemWithBodyByAlias(Alias, ContenHandleManager, ContentManager);
-        Markup = await ContentItemsService.GetAspectBody(ContentItem, ContentManager);
+        ContentItem = await ContentItemsService.GetContentItemByAlias(Alias, ContenHandleManager, ContentManager);
+        Markup = await ContentItemsService.GetBodyAspect(ContentItem, ContentManager);
 
     }
 }        

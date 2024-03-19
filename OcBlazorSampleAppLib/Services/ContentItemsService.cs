@@ -13,42 +13,24 @@ namespace OcBlazorSampleAppLib.Services;
 
 public static class ContentItemsService
 {
-    public static async Task<string?> GetContentBodyByAlias(string alias, IContentHandleManager handleManager, IContentManager contentManager)
+    public static async Task<ContentItem?> GetContentItemByAlias(string alias, IContentHandleManager handleManager, IContentManager contentManager)
     {
         var id = await handleManager.GetContentItemIdAsync($"alias:{alias}");
-        var contentItem = await contentManager.GetAsync(id, VersionOptions.Published);
-        string? result;
         try
         {
-            var bodyAspect = await contentManager.PopulateAspectAsync<BodyAspect>(contentItem);
-            result = bodyAspect.Body.ToString();
+            var contentItem = await contentManager.GetAsync(id, VersionOptions.Published);
+            return contentItem;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            result = ex.Message;
+            return null;
         }
-        return result;
+
     }
 
-    public static async Task<ContentItem?> GetContentItemWithBodyByAlias(string alias, IContentHandleManager handleManager, IContentManager contentManager)
+    public static async Task<string?> GetBodyAspect(ContentItem? contentItem, IContentManager contentManager)
     {
-        var id = await handleManager.GetContentItemIdAsync($"alias:{alias}");
-
-        var contentItem = await contentManager.GetAsync(id, VersionOptions.Published);
-
-        try
-        {
-            var bodyAspect = await contentManager.PopulateAspectAsync<BodyAspect>(contentItem);
-        }
-        catch
-        {
-        }
-        return contentItem;
-    }
-
-    public static async Task<string?> GetAspectBody(ContentItem? contentItem, IContentManager contentManager)
-    {
-        if (contentItem == null) return null;
+        if (contentItem is null) { return null; }
 
         try
         {
