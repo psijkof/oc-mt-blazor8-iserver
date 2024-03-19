@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<base href=@_siteBaseUrl />
+
+@code
+{
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
+    private string _siteBaseUrl = "/";
+
+    protected override Task OnParametersSetAsync()
+    {
+        var requestUrlPrefix = HttpContext?.Request.PathBase;
+
+        if (!String.IsNullOrEmpty(requestUrlPrefix)) { requestUrlPrefix = $"{requestUrlPrefix}/"; }
+        else { requestUrlPrefix = "/"; }
+
+        _siteBaseUrl = requestUrlPrefix;
+
+        return Task.CompletedTask;
+    }
+
+}

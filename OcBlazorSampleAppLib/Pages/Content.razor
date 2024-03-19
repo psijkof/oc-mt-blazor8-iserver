@@ -2,7 +2,7 @@
 
 @attribute [StreamRendering]
 
-@using OcBlazorSampleLib.Services
+@using OcBlazorSampleAppLib.Services
 @using OrchardCore.ContentManagement.Models
 
 @inject ISiteService SiteService
@@ -37,8 +37,8 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        ContentItem = await OcBlazorSampleLib.Services.ContentItemsService.GetContentItemWithBodyByAlias(Alias, ContenHandleManager, ContentManager);
-        Markup = await OcBlazorSampleLib.Services.ContentItemsService.GetAspectBody(ContentItem, ContentManager);
+        ContentItem = await ContentItemsService.GetContentItemWithBodyByAlias(Alias, ContenHandleManager, ContentManager);
+        Markup = await ContentItemsService.GetAspectBody(ContentItem, ContentManager);
 
     }
 }        

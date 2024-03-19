@@ -1,4 +1,4 @@
-using OcBlazorSampleLib;
+using OcBlazorSampleAppLib;
 using OrchardCore.Logging;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcBlazorSampleLib.Services;
+namespace OcBlazorSampleAppLib.Services;
 
 public static class ContentItemsService
 {

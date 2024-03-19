@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OcBlazorSampleLib\OcBlazorSampleLib.csproj" />
+    <ProjectReference Include="..\OcBlazorSampleAppLib\OcBlazorSampleAppLib.csproj" />
   </ItemGroup>
 
 </Project>

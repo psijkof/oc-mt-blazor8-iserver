@@ -20,11 +20,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MultiTenantBaseUrlProvider\MultiTenantBaseUrlProvider.csproj" />
+      <Folder Include="wwwroot\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\" />
+      <ProjectReference Include="..\OrchardCore.Components.Web\OrchardCore.Components.Web.csproj" />
     </ItemGroup>
 
 </Project>

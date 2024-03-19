@@ -1,0 +1,6 @@
+﻿<button disabled="@(!_notClicked)" @onclick=@(()=> _notClicked = false) type="button">Click me once</button>
+
+@code
+{
+    bool _notClicked = true;
+}

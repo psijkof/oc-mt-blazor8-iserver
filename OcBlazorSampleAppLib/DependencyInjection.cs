@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using OcBlazorSampleLib.Services;
+using OcBlazorSampleAppLib.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcBlazorSampleLib;
+namespace OcBlazorSampleAppLib;
 
 public static class DependencyInjection
 {
