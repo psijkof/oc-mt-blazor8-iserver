@@ -7,7 +7,7 @@
     [CascadingParameter]
     public HttpContext? HttpContext { get; set; }
 
-    private string _siteBaseUrl = "/";
+    protected string _siteBaseUrl = "/";
 
     protected override Task OnParametersSetAsync()
     {
