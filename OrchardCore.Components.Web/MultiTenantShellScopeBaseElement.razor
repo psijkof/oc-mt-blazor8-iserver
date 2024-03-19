@@ -6,7 +6,6 @@
 
     protected override Task OnParametersSetAsync()
     {
-       
         var requestUrlPrefix = ShellScope.Context.Settings.RequestUrlPrefix;
 
         if (!String.IsNullOrEmpty(requestUrlPrefix)) { requestUrlPrefix = $"{requestUrlPrefix}/"; }
